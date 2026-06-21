@@ -478,11 +478,17 @@ function Footer() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10">
         <div className="flex flex-col items-start gap-4 md:w-64">
           <img src={imgRectangle4} alt="Al Shamandy" className="w-48 h-36 object-cover rounded-2xl" />
-          <div className="bg-white rounded-full p-3 shadow-md">
+          <a
+            href={buildWhatsAppLink(WHATSAPP_MESSAGES.navbar)}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Chat on WhatsApp"
+            className="bg-white rounded-full p-3 shadow-md inline-flex items-center justify-center"
+          >
             <svg width="36" height="36" viewBox="0 0 47 46" fill="none">
               <path d={svgPaths.p1ecff800} fill="black" />
             </svg>
-          </div>
+          </a>
         </div>
         <div className="flex-1">
           <p className="font-['Raleway'] text-white text-xl mb-1">Tabs</p>
