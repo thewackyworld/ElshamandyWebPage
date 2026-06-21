@@ -29,8 +29,10 @@ import imgProd7 from "@/imports/FishProducts/74050ff8a9a0c83e7f060d62caf1d6a7e87
 import imgProd8 from "@/imports/FishProducts/877094a54efc6f584aba54b0e01f113b2f48ed08.png";
 
 const BLUE = "#004b99";
-
+//const WHATSAPP_NUMBER = "971551448811";
+const WHATSAPP_NUMBER = "971528466014";
 type PageKey = "fish" | "frozen" | "fruits" | "vegetables";
+type WhatsAppSource = "navbar" | "hero" | "product";
 
 interface ProductItem {
   name: string;
@@ -55,6 +57,16 @@ const PAGES: Record<PageKey, { title: string; heroImg: string; products: Product
   fruits: { title: "Fresh Fruits", heroImg: imgCatFruits, products: SHARED_PRODUCTS },
   vegetables: { title: "Fresh Vegetables", heroImg: imgCatVeg, products: SHARED_PRODUCTS },
 };
+
+const WHATSAPP_MESSAGES: Record<WhatsAppSource, string> = {
+  navbar: "Hi, I would like a quote from Al Shamandy General Trading.",
+  hero: "Hi, I am interested in your products and would like more information.",
+  product: "Hi, I saw a product I am interested in and would like a quote.",
+};
+
+function buildWhatsAppLink(message: string) {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
 
 // ── Shared components ────────────────────────────────────────────────────────
 
@@ -86,7 +98,9 @@ function Navbar({ onProductsClick }: { onProductsClick?: () => void }) {
           </button>
           <a href="#contact" className="font-['Roboto'] font-bold text-white text-sm hover:text-blue-300 transition-colors">Contact</a>
           <a
-            href="#contact"
+            href={buildWhatsAppLink(WHATSAPP_MESSAGES.navbar)}
+            target="_blank"
+            rel="noreferrer"
             className="font-['Poppins'] font-black text-white text-sm px-6 py-2.5 rounded-3xl hover:opacity-90 transition-opacity"
             style={{ backgroundColor: BLUE }}
           >
@@ -101,6 +115,8 @@ function Navbar({ onProductsClick }: { onProductsClick?: () => void }) {
 // ── Product detail panel ─────────────────────────────────────────────────────
 
 function ProductCard({ item }: { item: ProductItem }) {
+  const whatsappLink = buildWhatsAppLink(`${WHATSAPP_MESSAGES.product} Product: ${item.name}.`);
+
   return (
     <div className="bg-[#d9d9d9] rounded-3xl overflow-hidden flex flex-col md:flex-row gap-0 shadow-md">
       {/* Left: image + name */}
@@ -122,7 +138,9 @@ function ProductCard({ item }: { item: ProductItem }) {
           {item.description}
         </p>
         <a
-          href="#contact"
+          href={whatsappLink}
+          target="_blank"
+          rel="noreferrer"
           className="font-['Poppins'] font-black text-white text-lg px-8 py-3 rounded-3xl text-center hover:opacity-90 transition-opacity self-start w-fit"
           style={{ backgroundColor: BLUE }}
         >
@@ -218,10 +236,10 @@ function SlidePanel({ pageKey, onClose }: { pageKey: PageKey | null; onClose: ()
 
 function Hero() {
   return (
-    <section className="relative w-full min-h-[600px] md:min-h-[750px] overflow-hidden">
+    <section className="relative w-full min-h-[600px] md:min-h-[900px] overflow-hidden">
       <img src={imgBackground} alt="" className="absolute inset-0 w-full h-full object-cover object-center" />
       <div className="absolute inset-0 bg-gradient-to-b from-[rgba(87,87,87,0.6)] via-[rgba(152,152,152,0.3)] to-transparent" />
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-start gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-start lg:gap-8 sm:gap-22">
         <div className="backdrop-blur-sm bg-white/10 rounded-3xl p-8 max-w-2xl shadow-lg flex flex-col gap-5">
           <h1
             className="font-['Raleway'] font-black text-4xl md:text-6xl leading-tight"
@@ -235,7 +253,9 @@ function Hero() {
             Maintaining the best product choices.
           </p>
           <a
-            href="#contact"
+            href={buildWhatsAppLink(WHATSAPP_MESSAGES.hero)}
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex items-center gap-2 text-white font-['Poppins'] font-black text-xl px-7 py-3 rounded-3xl shadow-md w-fit hover:opacity-90 transition-opacity"
             style={{ backgroundColor: BLUE }}
           >
@@ -243,8 +263,8 @@ function Hero() {
             Inquire
           </a>
         </div>
-        <div className="flex flex-col gap-4 md:ml-auto">
-          <div className="bg-white rounded-3xl px-8 py-4 shadow-md text-center" style={{ minWidth: 180 }}>
+        <div className="flex flex-col gap-4 py-10 md:ml-auto">
+          <div className="bg-white rounded-3xl px-8 py-1 shadow-md text-center" style={{ minWidth: 180 }}>
             <p className="font-['Poppins'] text-sm" style={{ color: BLUE }}>Over</p>
             <p className="font-['Poppins'] font-black text-5xl" style={{ color: BLUE }}>14</p>
             <p className="font-['Poppins'] text-xl" style={{ color: BLUE }}>Countries</p>
@@ -292,7 +312,8 @@ function Countries() {
   }, []);
 
   return (
-    <section className="bg-[#cecece] py-10 px-6">
+    <section className="bg-[#cecece] py-5 px-6">
+      <h2 className="font-['Raleway'] font-black text-2xl text-black text-left mb-10">Countries we work with</h2>
       <div
         ref={scrollRef}
         className="max-w-7xl mx-auto overflow-x-auto scrollbar-hide"
@@ -350,23 +371,23 @@ function Products({ onOpen }: { onOpen: (key: PageKey) => void }) {
     <section id="products" className="bg-white py-14 px-6">
       <div className="max-w-7xl mx-auto">
         <h2 className="font-['Raleway'] font-black text-5xl text-black text-center mb-10">Products</h2>
-        <div className="flex gap-4" style={{ height: 560 }}>
+        <div className="flex flex-col lg:flex-row gap-4 lg:h-[560px]">
           {/* Left column */}
-          <div className="flex flex-col gap-4 flex-[3]">
-            <div className="flex-[5]">
+          <div className="flex flex-col gap-4 lg:flex-[3]">
+            <div className="h-[240px] sm:h-[300px] lg:h-auto lg:flex-[5]">
               <CategoryCard src={imgCatFish} alt="Fish" label="Fish" onClick={() => onOpen("fish")} />
             </div>
-            <div className="flex gap-4 flex-[4]">
-              <div className="flex-1">
+            <div className="flex flex-col sm:flex-row gap-4 lg:flex-[4]">
+              <div className="h-[210px] w-full sm:h-[250px] lg:h-auto lg:flex-1">
                 <CategoryCard src={imgCatFrozen} alt="Frozen Foods" label="Frozen Foods" onClick={() => onOpen("frozen")} />
               </div>
-              <div className="flex-1">
+              <div className="h-[210px] w-full sm:h-[250px] lg:h-auto lg:flex-1">
                 <CategoryCard src={imgCatFruits} alt="Fresh Fruits" label="Fresh Fruits" onClick={() => onOpen("fruits")} />
               </div>
             </div>
           </div>
           {/* Right column */}
-          <div className="flex-[2]">
+          <div className="h-[260px] sm:h-[340px] lg:h-auto lg:flex-[2]">
             <button
               onClick={() => onOpen("vegetables")}
               className="relative w-full h-full rounded-3xl overflow-hidden shadow-md flex flex-col justify-end group cursor-pointer text-left"
@@ -394,7 +415,7 @@ function AboutUs() {
     <section id="about" className="py-16 px-6" style={{ background: "rgba(217,217,217,0.4)" }}>
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 items-center">
         <div className="w-full md:w-[380px] shrink-0">
-          <img src={imgRectangle4} alt="Al Shamandy" className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl shadow-lg" />
+          <img src={imgRectangle4} alt="Al Shamandy" className="w-full h-[400px] md:h-[500px] object-cover rounded-3xl shadow-lg" style={{ height: "500px" }} />
         </div>
         <div className="flex-1 bg-[#d9d9d9] rounded-3xl p-8 md:p-12">
           <h2 className="font-['Raleway'] font-black text-3xl md:text-4xl text-black text-center mb-6">
