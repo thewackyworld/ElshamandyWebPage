@@ -81,7 +81,7 @@ function ArrowRight() {
 function Navbar({ onProductsClick }: { onProductsClick?: () => void }) {
   return (
     <nav className="sticky top-0 z-50 w-full bg-[rgba(40,40,60,0.72)] backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+      <div className="mx-auto px-6 py-4 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <img src={imgIconContainer} alt="Al Shamandy logo" className="h-14 w-auto object-contain" />
           <span className="font-['Roboto'] font-bold text-white text-sm md:text-base leading-tight max-w-[180px]">
@@ -312,11 +312,11 @@ function Countries() {
   }, []);
 
   return (
-    <section className="bg-[#cecece] py-5 px-6">
-      <h2 className="font-['Raleway'] font-black text-2xl text-black text-left mb-10">Countries we work with</h2>
+    <section className="bg-[#cecece] py-5">
+      <h2 className="font-['Raleway'] font-black text-2xl text-black text-left mb-10 px-8">Countries we work with</h2>
       <div
         ref={scrollRef}
-        className="max-w-7xl mx-auto overflow-x-auto scrollbar-hide"
+        className="mx-auto overflow-x-auto scrollbar-hide"
         style={{ msOverflowStyle: "none", scrollbarWidth: "none" }}
       >
         <div className="flex gap-6 pb-2 pr-6" style={{ minWidth: "max-content" }}>
