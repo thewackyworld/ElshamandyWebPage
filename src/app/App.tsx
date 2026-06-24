@@ -10,6 +10,14 @@ import imgRectangle15 from "@/imports/Desktop/14590813524fa7fef8cd9174cf5bd61830
 import imgRectangle16 from "@/imports/Desktop/5dded13b37cee2466cdcd5a66019b07893d03493.png";
 import imgRectangle17 from "@/imports/Desktop/647169cf6ced400b38d5c049216660d8cb62ccd8.png";
 import imgRectangle18 from "@/imports/Desktop/92c6f11aa506de6bcc4a334bb9cd68fabd72ad77.png";
+import imgRectangle19 from "@/imports/Desktop/Mauritania.webp";
+import imgRectangle20 from "@/imports/Desktop/Flag_of_Indonesia.png";
+import imgRectangle21 from "@/imports/Desktop/Ecuador.webp";
+import imgRectangle22 from "@/imports/Desktop/Pakistan.webp";
+import imgRectangle23 from "@/imports/Desktop/Bangladesh.png";
+
+
+
 import imgCatFish from "@/imports/Desktop/51a9ba6d2ae2d69f119620b730adb5c45c852c50.png";
 import imgCatFruits from "@/imports/Desktop/e57903f77f6aceb723bd991655b5cb78abfa9439.png";
 import imgCatVeg from "@/imports/Desktop/7c72ecaa341245adc294f40d709697b2b0ffe4cb.png";
@@ -28,6 +36,24 @@ import imgProd6 from "@/imports/FishProducts/72f2b09cd6d1e838f320c38abff67ea7665
 import imgProd7 from "@/imports/FishProducts/74050ff8a9a0c83e7f060d62caf1d6a7e87947aa.png";
 import imgProd8 from "@/imports/FishProducts/877094a54efc6f584aba54b0e01f113b2f48ed08.png";
 
+import chicken from "@/imports/FrozenProducts/chicken.webp";
+import beef from "@/imports/FrozenProducts/beef.webp";
+import mutton from "@/imports/FrozenProducts/mutton.webp";
+import tenderBeef from "@/imports/FrozenProducts/tender_beef.webp";
+import tenderChicken from "@/imports/FrozenProducts/tender_chicken.webp";
+
+import apple from "@/imports/FreshFruitProducts/apple.webp";
+import banana from "@/imports/FreshFruitProducts/bannanas.webp";
+import oranges from "@/imports/FreshFruitProducts/oranges.webp";
+import grapes from "@/imports/FreshFruitProducts/grapes.webp";
+import mangos from "@/imports/FreshFruitProducts/mangos.webp"; 
+
+import tomatoes from "@/imports/FreshVegatablesProducts/Tomattoes.webp";
+import cucumbers from "@/imports/FreshVegatablesProducts/cucumber.webp";
+import lettuce from "@/imports/FreshVegatablesProducts/lettuce.webp";
+import carrots from "@/imports/FreshVegatablesProducts/carrots.webp";
+import peppers from "@/imports/FreshVegatablesProducts/bell_peppers.webp";
+
 const BLUE = "#004b99";
 //const WHATSAPP_NUMBER = "971551448811";
 const WHATSAPP_NUMBER = "971528466014";
@@ -40,7 +66,7 @@ interface ProductItem {
   img: string;
 }
 
-const SHARED_PRODUCTS: ProductItem[] = [
+const FISH_PRODUCTS: ProductItem[] = [
   { name: "Vannamei Shrimp", description: "Vannamei Shrimps, (Head-On, Head-Less, Peeled and deveined (PD), Pulled Vein, Etc.)", img: imgProd1 },
   { name: "Black Tiger Shrimp", description: "Black Tiger Shrimp, (Head-On, Head-Less, Peeled and deveined (PD), Pulled Vein, Etc.)", img: imgProd2 },
   { name: "Red Shrimp", description: "Red Shrimp, (Head-On, Head-Less, Peeled and deveined (PD), Pulled Vein, Etc.)", img: imgProd3 },
@@ -51,11 +77,37 @@ const SHARED_PRODUCTS: ProductItem[] = [
   { name: "Lizard Fish", description: "Lizard Fish", img: imgProd8 },
 ];
 
+const FROZEN_PRODUCTS: ProductItem[] = [
+  { name: "Chicken", description: "Frozen Chicken (Whole, Cut, Boneless)", img: chicken },
+  { name: "Beef", description: "Frozen Beef (Ground, Steak, Chops)", img: beef },
+  { name: "Mutton", description: "Frozen Mutton (Ground, Steak, Chops)", img: mutton },
+  { name: "Tender Beef", description: "Tender Beef (Ground, Steak, Chops)", img: tenderBeef },
+  { name: "Tender Chicken", description: "Tender Chicken (Ground, Steak, Chops)", img: tenderChicken }
+];
+
+const FRESH_FRUITS: ProductItem[] = [
+  { name: "Apples", description: "Fresh Apples (Red, Green, Yellow)", img: apple },
+  { name: "Bananas", description: "Fresh Bananas", img: banana },
+  { name: "Oranges", description: "Fresh Oranges", img: oranges },
+  { name: "Grapes", description: "Fresh Grapes (Red, Green, Black)", img: grapes },
+  { name: "Mangoes", description: "Fresh Mangoes", img: mangos },
+];
+
+const FRESH_VEGETABLES: ProductItem[] = [
+  { name: "Tomatoes", description: "Fresh Tomatoes", img: tomatoes },
+  { name: "Cucumbers", description: "Fresh Cucumbers", img: cucumbers },
+  { name: "Lettuce", description: "Fresh Lettuce", img: lettuce },
+  { name: "Carrots", description: "Fresh Carrots", img: carrots },
+  { name: "Bell Peppers", description: "Fresh Bell Peppers (Red, Green, Yellow)", img: peppers },
+];
+
+
+
 const PAGES: Record<PageKey, { title: string; heroImg: string; products: ProductItem[] }> = {
-  fish: { title: "FISH", heroImg: imgCatFish, products: SHARED_PRODUCTS },
-  frozen: { title: "Frozen Foods", heroImg: imgCatFrozen, products: SHARED_PRODUCTS },
-  fruits: { title: "Fresh Fruits", heroImg: imgCatFruits, products: SHARED_PRODUCTS },
-  vegetables: { title: "Fresh Vegetables", heroImg: imgCatVeg, products: SHARED_PRODUCTS },
+  fish: { title: "FISH", heroImg: imgCatFish, products: FISH_PRODUCTS },
+  frozen: { title: "Frozen Foods", heroImg: imgCatFrozen, products: FROZEN_PRODUCTS },
+  fruits: { title: "Fresh Fruits", heroImg: imgCatFruits, products: FRESH_FRUITS },
+  vegetables: { title: "Fresh Vegetables", heroImg: imgCatVeg, products: FRESH_VEGETABLES },
 };
 
 const WHATSAPP_MESSAGES: Record<WhatsAppSource, string> = {
@@ -266,7 +318,7 @@ function Hero() {
         <div className="flex flex-col gap-4 py-10 md:ml-auto">
           <div className="bg-white rounded-3xl px-8 py-1 shadow-md text-center" style={{ minWidth: 180 }}>
             <p className="font-['Poppins'] text-sm" style={{ color: BLUE }}>Over</p>
-            <p className="font-['Poppins'] font-black text-5xl" style={{ color: BLUE }}>14</p>
+            <p className="font-['Poppins'] font-black text-5xl" style={{ color: BLUE }}>13</p>
             <p className="font-['Poppins'] text-xl" style={{ color: BLUE }}>Countries</p>
           </div>
           <div className="bg-white rounded-3xl px-8 py-4 shadow-md text-center">
@@ -288,6 +340,11 @@ const countries = [
   { name: "Tunisia", img: imgRectangle16 },
   { name: "Algeria", img: imgRectangle17 },
   { name: "Oman", img: imgRectangle18 },
+  { name: "Mauritania", img: imgRectangle19},
+  { name: "indonesia", img: imgRectangle20},
+  { name: "Ecuador", img: imgRectangle21},
+  { name: "Pakistan", img: imgRectangle22},
+  { name: "Bangladesh", img: imgRectangle23},
 ];
 
 function Countries() {
@@ -323,13 +380,12 @@ function Countries() {
           {[...countries, ...countries].map((c, index) => (
             <div
               key={`${c.name}-${index}`}
-              className="bg-white rounded-3xl shadow-md flex flex-col items-center gap-2 px-4 pt-3 pb-2 shrink-0"
-              style={{ width: 220 }}
+              className="bg-white rounded-3xl shadow-md flex flex-col items-center gap-2 px-4 pt-3 pb-2 w-flex shrink-0"
             >
-              <div className="flex items-center gap-2 w-full">
-                <span className="font-['Poppins'] font-black text-xl text-black w-20 shrink-0">{c.name}</span>
-                <div className="flex-1 h-14 rounded-2xl overflow-hidden shadow-sm">
-                  <img src={c.img} alt={c.name} className="w-full h-full object-cover" />
+              <div className="flex items-center gap-2 w-flex">
+                <span className="font-['Poppins'] font-black text-lg text-black w-fill shrink-0">{c.name}</span>
+                <div className="flex-1 h-14 w-30 rounded-2xl items-right overflow-hidden shadow-sm">
+                  <img src={c.img} alt={c.name} className="w-full h-full items-center object-cover" />
                 </div>
               </div>
               <div className="h-1 rounded-full w-full" style={{ backgroundColor: BLUE }} />
