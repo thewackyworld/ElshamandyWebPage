@@ -295,11 +295,11 @@ function Hero() {
         <div className="backdrop-blur-sm bg-white/10 rounded-3xl p-8 max-w-2xl shadow-lg flex flex-col gap-5">
           <h1
             className="font-['Raleway'] font-black text-4xl md:text-6xl leading-tight"
-            style={{ color: BLUE, textShadow: "5px 4px 4px rgba(0,0,0,0.25)" }}
+            style={{ color: "rgb(255, 255, 255)", textShadow: "5px 4px 4px rgba(0,0,0,0.25)" }}
           >
             Providing You With the Very Best
           </h1>
-          <p className="font-['Poppins'] text-base leading-relaxed" style={{ color: "#004791", textShadow: "1px 4px 4px rgba(0,0,0,0.25)" }}>
+          <p className="font-['Poppins'] text-base leading-relaxed" style={{ color: "rgb(255, 255, 255)", textShadow: "1px 4px 4px rgba(0,0,0,0.25)" }}>
             Never Be disappointed By a delivery again. ALSHAMANDY GENERAL TRADING deals with
             importing and exporting of fresh and frozen goods from a multitude of countries,
             Maintaining the best product choices.
