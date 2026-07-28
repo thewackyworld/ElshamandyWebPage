@@ -15,6 +15,8 @@ import imgRectangle20 from "@/imports/Desktop/Flag_of_Indonesia.png";
 import imgRectangle21 from "@/imports/Desktop/Ecuador.webp";
 import imgRectangle22 from "@/imports/Desktop/Pakistan.webp";
 import imgRectangle23 from "@/imports/Desktop/Bangladesh.png";
+import imgRectangle24 from "@/imports/Desktop/senegal.webp";
+import imgRectangle25 from "@/imports/Desktop/vietnam.webp";
 
 
 
@@ -55,8 +57,7 @@ import carrots from "@/imports/FreshVegatablesProducts/carrots.webp";
 import peppers from "@/imports/FreshVegatablesProducts/bell_peppers.webp";
 
 const BLUE = "#004b99";
-//const WHATSAPP_NUMBER = "971551448811";
-const WHATSAPP_NUMBER = "971528466014";
+const WHATSAPP_NUMBER = "971551448811";
 type PageKey = "fish" | "frozen" | "fruits" | "vegetables";
 type WhatsAppSource = "navbar" | "hero" | "product";
 
@@ -345,6 +346,8 @@ const countries = [
   { name: "Ecuador", img: imgRectangle21},
   { name: "Pakistan", img: imgRectangle22},
   { name: "Bangladesh", img: imgRectangle23},
+  { name: "Senegal", img: imgRectangle24},
+  { name: "Vietnam", img: imgRectangle25},
 ];
 
 function Countries() {
