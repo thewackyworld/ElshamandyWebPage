@@ -60,6 +60,8 @@ const BLUE = "#004b99";
 const WHATSAPP_NUMBER = "971551448811";
 type PageKey = "fish" | "frozen" | "fruits" | "vegetables";
 type WhatsAppSource = "navbar" | "hero" | "product";
+ 
+
 
 interface ProductItem {
   name: string;
